@@ -1,0 +1,40 @@
+pipeline{
+
+    agent {
+        label 'NODEJS'
+    }
+
+    stages {
+
+        stage('Compile Code') {
+            steps {
+                sh '''
+                mvn compile
+            '''
+            }
+        }
+
+        stage('Make Package') {
+            steps {
+                sh '''
+                mvn package
+            '''
+            }
+        }
+        stage('prepare Artifacts') {
+            steps {
+                sh '''
+                zip -r users.zip *
+            '''
+            }
+
+        }
+        stage('upload Artifacts') {
+            steps {
+                sh '''
+           curl -f -v -u admin:admin --upload-file users.zip http://10.1.2.210:8081/repository/user/users.zip
+        '''
+            }
+        }
+    }
+}
