@@ -3,6 +3,9 @@ pipeline{
     agent {
         label 'NODEJS'
     }
+    tools {
+        mvn3.6
+    }
 
     stages {
 
