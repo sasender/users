@@ -10,7 +10,7 @@ pipeline{
             steps {
                 sh '''
                 mvn compile
-            '''
+               '''
             }
         }
 
@@ -18,14 +18,14 @@ pipeline{
             steps {
                 sh '''
                 mvn package
-            '''
+               '''
             }
         }
         stage('prepare Artifacts') {
             steps {
                 sh '''
                 zip -r users.zip *
-            '''
+               '''
             }
 
         }
@@ -33,7 +33,7 @@ pipeline{
             steps {
                 sh '''
            curl -f -v -u admin:admin --upload-file users.zip http://10.1.2.210:8081/repository/user/users.zip
-        '''
+          '''
             }
         }
     }
