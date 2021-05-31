@@ -3,9 +3,6 @@ pipeline{
     agent {
         label 'JAVA'
     }
-    tools {
-        mvn-3.6
-    }
 
     stages {
 
