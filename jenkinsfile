@@ -1,7 +1,7 @@
 @Library('todoshop') _
 
 todoshop (
-        COMPONENT             : 'user',
+        COMPONENT             : 'users',
         PROJECT_NAME          : "todoshop",
         SLAVE_LABEL           : "NODEJS",
         SKIP_NEXUS_UPLOAD     :  false,
